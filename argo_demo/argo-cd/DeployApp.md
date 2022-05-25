@@ -1,13 +1,13 @@
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 argocd app create --name demoapp \
---repo https://github.com/marcel-dempers/docker-development-youtube-series \
+--repo https://github.com/abdulk3/argo.git \
 --dest-server https://kubernetes.default.svc \
---dest-namespace default --path argo/demoapp
+--dest-namespace default --path argo-cd/demoapp
 
 or 
 
-argocd app create demoapp --repo https://github.com/argoproj/argocd-example-apps.git --path helm-guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
+argocd app create demoapp https://github.com/abdulk3/argo.git --path argo-cd/demoapp --dest-server https://kubernetes.default.svc --dest-namespace default
   
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -21,9 +21,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/marcel-dempers/docker-development-youtube-series.git
+    repoURL: https://github.com/abdulk3/argo.git
     targetRevision: HEAD
-    path: argo_demo/example-app
+    path: argo-cd/exampleapp
   destination:
     server: https://kubernetes.default.svc
     namespace: default
