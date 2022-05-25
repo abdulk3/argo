@@ -40,7 +40,7 @@ spec:
           mountPath: /configs/
       volumes:
       - name: secret-volume
-        secret:
+        secret
           secretName: mysecret
       - name: config-volume
         configMap:
